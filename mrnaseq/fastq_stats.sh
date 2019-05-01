@@ -8,6 +8,7 @@ for f in $FASTQ
     do echo $(basename -- $f) $(expr $(grep -c "$" $f) / 4)
 done
 
+echo ''
 
 # How many gigabytes
 echo 'Gygabytes per fastq file'
