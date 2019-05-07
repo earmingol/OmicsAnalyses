@@ -6,7 +6,7 @@
 #PBS -m aeb
 #PBS -q hotel
 
-REF_GENOME="/home/ucsd-train70/Erick/siob242c_work/reference_files/hg19.fas"
+REF_GENOME="/home/ucsd-train70/Erick/siob242c_work/reference_files/"
 OUTPUT="/home/ucsd-train70/Erick/siob242c_work/mrnaseq/outputs/"
 module load bowtie
 
