@@ -6,7 +6,9 @@ OUTPUT=/home/ucsd-train70/Erick/siob242c_work/mrnaseq/outputs/
 for f in $SAM
 do
     BASE=$(basename -- $f)
-    grep -v '@SQ\|@PG' $f | awk '{print $3}' | grep -v "*" > ${OUTPUT%%/}/${BASE//.sam/.aligned.sam}
-    grep '@SQ\|@PG' $f > ${OUTPUT%%/}/${BASE//.sam/.headers.sam}
+    OUTPUT_FILE=${OUTPUT%%/}/${BASE//.sam/.tmp.sam}
+    grep -v '@SQ\|@PG' $f | awk '{print $3}' | grep -v "*" > $OUTPUT_FILE
+    cat $(grep '@SQ\|@PG' $f) $OUTPUT_FILE > ${OUTPUT%%/}/${BASE//.sam/.aligned.sam}
+    rm $OUTPUT_FILE
 done
 
