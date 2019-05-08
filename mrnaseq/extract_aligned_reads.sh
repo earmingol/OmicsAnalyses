@@ -7,8 +7,10 @@ for f in $SAM
 do
     BASE=$(basename -- $f)
     OUTPUT_FILE=${OUTPUT%%/}/${BASE//.sam/.tmp.sam}
-    grep -v '@SQ\|@PG' $f | awk '{print $3}' | grep -v "*" > $OUTPUT_FILE
-    cat $(grep '@SQ\|@PG' $f) $OUTPUT_FILE > ${OUTPUT%%/}/${BASE//.sam/.aligned.sam}
+    tail -n +87 $f | awk '$3 != "*" { print $0 }' > $OUTPUT_FILE
+    OUTPUT_FINAL=${OUTPUT%%/}/${BASE//.sam/.aligned.sam}
+    head -n 86 $f > $OUTPUT_FINAL
+    cat $OUTPUT_FILE >> $OUTPUT_FINAL
     rm $OUTPUT_FILE
 done
 

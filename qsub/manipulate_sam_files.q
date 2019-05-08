@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#PBS -l nodes=1:ppn=12
+#PBS -l nodes=1:ppn=4
 #PBS -l walltime=05:00:00
 #PBS -M earmingol@eng.ucsd.edu
 #PBS -m aeb

@@ -7,8 +7,8 @@ for f in $SAM_FILES
 do
     FILENAME=$(basename -- $f)
     SIZE=$(ls -l --block-size=GB $f| awk '{print $5}')
-    TOTAL_READS=$(grep -v '@SQ\|@PG' $f | grep -c "$")
-    ALIGNED_READS=$(grep -v '@SQ\|@PG' $f | awk '{print $3}' | grep -v "*" | grep -c "$")
+    TOTAL_READS=$(tail -n +87 $f | grep -c "$")
+    ALIGNED_READS=$(tail -n +87 $f | awk '{print $3}' | grep -v "*" | grep -c "$")
     if [ $TOTAL_READS -eq 0 ]
     then
         PERCENTAGE=$"0%"
