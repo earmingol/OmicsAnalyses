@@ -6,4 +6,4 @@
 #PBS -m aeb
 #PBS -q hotel
 
-/home/ucsd-train70/Erick/siob242c_work/mrnaseq/bin/sam2bam.sh
+/home/ucsd-train70/Erick/siob242c_work/mrnaseq/bin/HW3/map_reads.sh

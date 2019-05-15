@@ -15,6 +15,6 @@ FILES="1526_CGATGT_L003_R1_001.fastq
 for f in $FILES
 do
     BASE=$(basename -- $f)
-    bowtie -v 0 -S -q hg19 $FASTQ$f $OUTPUT${BASE//.fastq/_v1.sam}
+    bowtie -v 0 -S -q hg19 $FASTQ$f $OUTPUT${BASE//.fastq/_v0.sam}
     bowtie -v 3 -S -q hg19 $FASTQ$f $OUTPUT${BASE//.fastq/_v3.sam}
 done

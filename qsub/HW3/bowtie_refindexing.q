@@ -7,7 +7,7 @@
 #PBS -q hotel
 
 REF_GENOME="/home/ucsd-train70/Erick/siob242c_work/reference_files/"
-OUTPUT="/home/ucsd-train70/Erick/siob242c_work/mrnaseq/outputs/"
+OUTPUT="/home/ucsd-train70/Erick/siob242c_work/mrnaseq/outputs/HW3/"
 module load bowtie
 
 START_TIME=$(date +%s)
