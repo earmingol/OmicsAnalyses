@@ -27,6 +27,6 @@ do
 done
 
 # Combine lines for all samples
-bowtie -v 3 -S --no-unal -q hg19 $FASTQ$"1526_CGATGT_L003_R1_001.fastq",$FASTQ$"1526_CGATGT_L008_R1_001.fastq" $OUTPUT$"1526_CGATGT_L3L8_R1_001.sam"
+bowtie -v 3 -S -q hg19 $FASTQ$"1526_CGATGT_L003_R1_001.fastq",$FASTQ$"1526_CGATGT_L008_R1_001.fastq" $OUTPUT$"1526_CGATGT_L3L8_R1_001.sam"
 
-bowtie -v 3 -S --no-unal -q hg19 $FASTQ$"1528_TGACCA_L003_R1_001.fastq",$FASTQ$"1528_TGACCA_L008_R1_001.fastq" $OUTPUT$"1528_TGACCA_L3L8_R1_001.sam"
+bowtie -v 3 -S -q hg19 $FASTQ$"1528_TGACCA_L003_R1_001.fastq",$FASTQ$"1528_TGACCA_L008_R1_001.fastq" $OUTPUT$"1528_TGACCA_L3L8_R1_001.sam"

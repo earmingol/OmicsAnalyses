@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-SAM_FILES=/home/ucsd-train70/Erick/siob242c_work/mrnaseq/outputs/HW4/*.sam
+SAM_FILES=$1
 
 echo -e 'FILE\tSIZE\tTOTAL READS\tALIGNED READS\tPERCENTAGE'
 for f in $SAM_FILES
