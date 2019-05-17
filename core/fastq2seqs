@@ -1,0 +1,16 @@
+#!/usr/local/bin/perl
+
+while ($_ = <STDIN>)
+{
+    if ($_ =~ /^\@(.*)$/)
+    {
+#	print ">$1\n";
+	$_ = <STDIN>;
+	print "$_";
+	$i++;
+	$_ = <STDIN>;
+	$_ = <STDIN>;
+    }
+}
+
+print STDERR "read $i sequences\n";

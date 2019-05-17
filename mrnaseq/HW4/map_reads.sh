@@ -19,11 +19,10 @@ FILES="1526_CGATGT_L003_R1_001.fastq
 1528_TGACCA_L003_R1_001.fastq
 1528_TGACCA_L008_R1_001.fastq"
 
-
-for f in $FILES
+for f in ${FASTQ}*.fastq
 do
     BASE=$(basename -- $f)
-    bowtie -v 3 -S --no-unal -q hg19 $FASTQ$f $OUTPUT${BASE//.fastq/.sam}
+    bowtie -v 3 -S -q hg19 $FASTQ$BASE $OUTPUT${BASE//.fastq/.sam}
 done
 
 # Combine lines for all samples
