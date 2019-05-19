@@ -12,4 +12,4 @@ ROOT=/home/ucsd-train70/Erick/siob242c_work/mrnaseq/bin/HW4/
 #INPUT=/home/ucsd-train70/Erick/siob242c_work/mrnaseq/outputs/HW4/
 
 # Compare time series
-$ROOT$"cuffdiff_compare_bypair.sh"
+$ROOT$"cuffdiff_compare_bytimeseries.sh"

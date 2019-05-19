@@ -15,6 +15,7 @@ REF=/home/ucsd-train70/Erick/siob242c_data/reference_files/cuffdiff/genes.gtf
 #1529	hESC Wnt3a 24hr
 #1530	hESC Wnt3a 48hr
 
+
 # Lane 3
 cuffdiff -o $OUTPUT$"TIMEL3/1528/" -L "Untreated00hr","Wnt3a12hr" $REF \
 $INPUT$"1525_ATCACG_L003_R1_001.sorted.dedup.bam" \
