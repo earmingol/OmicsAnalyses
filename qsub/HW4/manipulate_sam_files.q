@@ -6,8 +6,8 @@
 #PBS -m aeb
 #PBS -q hotel
 
+SAM_FOLDER=/home/ucsd-train70/Erick/siob242c_work/mrnaseq/outputs/HW4/
 OUTPUT=/home/ucsd-train70/Erick/siob242c_work/mrnaseq/outputs/HW4/
-SAM=OUTPUT=/home/ucsd-train70/Erick/siob242c_work/mrnaseq/outputs/HW4/*.sam
 
-/home/ucsd-train70/Erick/siob242c_work/mrnaseq/bin/HW4/sam_stats.sh > $OUTPUT$"/sam_stats.txt"
-/home/ucsd-train70/Erick/siob242c_work/mrnaseq/bin/HW4/extract_aligned_reads.sh $OUTPUT $SAM
+/home/ucsd-train70/Erick/siob242c_work/mrnaseq/bin/HW4/sam_stats.sh $SAM_FOLDER > $OUTPUT$"/sam_stats.txt"
+/home/ucsd-train70/Erick/siob242c_work/mrnaseq/bin/HW4/extract_aligned_reads.sh $OUTPUT $SAM_FOLDER

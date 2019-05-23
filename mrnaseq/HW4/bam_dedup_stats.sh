@@ -2,10 +2,10 @@
 
 module load samtools
 
-INPUT=/home/ucsd-train70/Erick/siob242c_work/mrnaseq/outputs/HW4/
+INPUT=$1
 
 echo -e 'FILE\tTOTAL READS\tDUPLICATE READS\tDE-DUPLICATE READS'
-for f in /home/ucsd-train70/Erick/siob242c_work/mrnaseq/outputs/HW4/*.sorted.bam
+for f in `echo ${INPUT}"/*.sorted.bam"`
 do
     FILENAME=$(basename -- $f)
     TOTAL_READS=$(samtools view -c $f)

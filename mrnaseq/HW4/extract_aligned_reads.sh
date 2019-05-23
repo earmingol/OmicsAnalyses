@@ -1,9 +1,9 @@
 #!/bin/env bash
 
-OUTPUT_FOLDER=/home/ucsd-train70/Erick/siob242c_work/mrnaseq/outputs/HW4/
-INPUT=/home/ucsd-train70/Erick/siob242c_work/mrnaseq/outputs/HW4/
+OUTPUT_FOLDER=$1
+INPUT=$2
 
-for f in /home/ucsd-train70/Erick/siob242c_work/mrnaseq/outputs/HW4/*.sam
+for f in `echo ${INPUT}"/*.sam"`
 do
     BASE=$(basename -- $f)
     OUTPUT_FILE=${OUTPUT_FOLDER%%/}/${BASE//.sam/.tmp.sam}

@@ -11,8 +11,11 @@ ROOT=/home/ucsd-train70/Erick/siob242c_work/mrnaseq/bin/HW4/
 OUTPUT=/home/ucsd-train70/Erick/siob242c_work/mrnaseq/outputs/HW4/
 INPUT=/home/ucsd-train70/Erick/siob242c_work/mrnaseq/outputs/HW4/
 
+FASTQ=/home/ucsd-train70/Erick/siob242c_data/mrnaseq/wnt_seq/fastq_files/
+BOWTIE_INDEXES=/home/ucsd-train70/Erick/siob242c_work/reference_files/
+
 # Map reads
-$ROOT$"map_reads.sh" > $OUTPUT$"/mapping_stats.txt"
+$ROOT$"map_reads.sh" $FASTQ $BOWTIE_INDEXES $OUTPUT > $OUTPUT$"/mapping_stats.txt"
 
 # Extract unmapped reads
 /home/ucsd-train70/Erick/siob242c_work/mrnaseq/bin/HW4/extract_aligned_reads.sh $OUTPUT $INPUT

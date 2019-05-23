@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-INPUT=/home/ucsd-train70/Erick/siob242c_work/mrnaseq/outputs/HW4/
+INPUT=$1
 
 echo -e 'FILE\tSIZE\tTOTAL READS\tALIGNED READS\tPERCENTAGE'
-for f in /home/ucsd-train70/Erick/siob242c_work/mrnaseq/outputs/HW4/*.aligned.sam
+for f in `echo ${INPUT}"/*.aligned.sam"`
 do
     FILENAME=$(basename -- $f)
     SIZE=$(ls -l --block-size=GB $f| awk '{print $5}')

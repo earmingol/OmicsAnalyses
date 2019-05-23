@@ -2,10 +2,9 @@
 
 module load samtools
 
-INPUT=/home/ucsd-train70/Erick/siob242c_work/mrnaseq/outputs/HW4/
+INPUT=$1
 
-
-for f in /home/ucsd-train70/Erick/siob242c_work/mrnaseq/outputs/HW4/*.bam
+for f in `echo ${INPUT}"/*.bam"`
 do
     samtools sort $f > ${f//.bam/.sorted.bam}
 done
