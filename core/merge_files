@@ -1,0 +1,75 @@
+#!/usr/bin/perl
+
+@files = split(/\,/,$ARGV[0]);
+
+foreach $file (@files)
+{
+    $f++;
+    open(IN,$file) || die "cannot open $file";
+
+    $_ = <IN>;
+    chomp;
+    $fields = $_;
+    $hdr .= "$fields\t";
+
+    @fields = split(/\t/,$fields);
+    $numfields = $#fields + 1;
+    $nodata = "";
+    for ($i=1; $i<=$#fields; $i++) { $nodata .= "nd\t"; }
+    chop($nodata);
+
+    print STDERR "$f:\tfields in file = $numfields\t>$nodata<\n";
+
+    $i = 0;
+    while ($_ = <IN>)
+    {
+	chomp;
+        ($id) = split(/\t/,$_);
+	$key = "$file:$id";
+	$data{$key} = $_;
+
+	$is_id{$id} = 1;
+	$i++;
+    }
+
+    print STDERR "$f:\tread $i datalines from $file\n";
+}
+print STDERR "$f:\tDONE reading $f files\n";
+
+
+chop($hdr);
+
+print "$hdr\n";
+
+@ids = sort keys %is_id;
+
+$numids = $#ids + 1;
+
+print STDERR "printing data for $numids IDs...\n";
+
+foreach $id (@ids)
+{
+    $idcnt++;
+#   print STDERR "$idcnt:\tprinting data for $id\n";
+    $idoutline = "";
+    foreach $file (@files)
+    {
+        $key = "$file:$id";
+	if ($data{$key})
+	{
+	    $idoutline .= "$data{$key}\t";
+
+        }
+	else
+	{
+	    $misscnt++;
+	    print STDERR "$key:\t$misscnt\tmissing datapoint\n";
+	    $idoutline .= "$id\t$nodata\t";
+	}
+    }
+    chop($idoutline);
+
+    print "$idoutline\n";
+}
+
+print STDERR "printed  data for $idcnt IDs\n";
