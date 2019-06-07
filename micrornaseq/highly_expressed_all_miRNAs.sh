@@ -11,5 +11,4 @@ do
     awk '$1 > 100000  {print $2}' $f > ${OUTPUT%%/}/"${BASE}.highlymiRNA"
 done
 
-
 cat /home/ucsd-train70/Erick/siob242c_work/micrornaseq/outputs/*.highlymiRNA | sort | uniq -c | sed 's/^ *//' | sed 's/ /\t/' | sort -n -r | awk '$1 > 9  {print $2}'
